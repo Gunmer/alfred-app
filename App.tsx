@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NativeBaseProvider } from "native-base";
+import { HomeScreen } from './screens/home/HomeScreen';
+import { LoginScreen } from './screens/login/LoginScreen';
+import { RootScreen } from './screens/root/RootScreen';
+import { ShoppingListScreen } from './screens/shopping-list/ShoppingListScreen';
+
+type RootStackParamList = {
+  Login: undefined;
+  Root: undefined;
+  Home: undefined;
+  ShoppingList: undefined;
+}
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <NativeBaseProvider>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}/>
+            <Stack.Screen name="Root" component={RootScreen} options={{headerShown: false}}/>
+            <Stack.Screen name="Home" component={HomeScreen}/>
+            <Stack.Screen name="ShoppingList" component={ShoppingListScreen}/>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </NativeBaseProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
