@@ -4,7 +4,7 @@ import { NativeBaseProvider } from "native-base";
 import { HomeScreen } from './screens/home/HomeScreen';
 import { LoginScreen } from './screens/login/LoginScreen';
 import { RootScreen } from './screens/root/RootScreen';
-import { ShoppingListScreen } from './screens/shopping-list/ShoppingListScreen';
+import { ShoppingListScreen } from './screens/shoppingList/ShoppingListScreen';
 
 type RootStackParamList = {
   Login: undefined;

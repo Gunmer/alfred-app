@@ -1,9 +1,11 @@
 import { Box, Button, Center, Heading, Image } from 'native-base';
+import { setAuthToken } from '../../commons/HttpClient';
 
 // @ts-ignore
 export const LoginScreen = ({navigation}) => {
 
   const doLogin = () => {
+    setAuthToken('851f5ab3-e252-4dcc-8d65-6bf17ab3c1e4')
     navigation.navigate('Root')
   };
 
